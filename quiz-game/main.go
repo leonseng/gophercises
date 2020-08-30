@@ -29,7 +29,7 @@ func main() {
 		if err == io.EOF {
 			break
 		} else if err != nil {
-			fmt.Println(err)
+			panic(err)
 		}
 
 		q, a := record[0], record[1]
