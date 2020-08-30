@@ -12,7 +12,6 @@ import (
 )
 
 var rightCount int
-var aChannel = make(chan string)
 var wg = sync.WaitGroup{}
 var stdinReader = bufio.NewReader(os.Stdin)
 
@@ -33,7 +32,7 @@ func main() {
 	go playGame(problems)
 	go gameTimer(gameTime)
 	wg.Wait()
-	
+
 	fmt.Printf("Score: %v/%v\n", rightCount, len(problems))
 }
 
