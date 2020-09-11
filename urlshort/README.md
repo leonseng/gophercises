@@ -1,8 +1,8 @@
 # Learnings
 
 - Use `go mod init <module-name>` to initialize a module, allowing you to import packages within the module
-- make() is used to initialize objects like arrays and maps.
-- need to pass in size when making arrays, but not maps
+- Use `go mod vendor` to download dependencies listed in `go.mod`. This downloads the packages in to a `vendor` directory, which has precedence over `$GOPATH/src/`
+- make() is used to initialize objects like arrays and maps. Need to pass in size when making arrays, but not maps
 - To pass objects into a http handler function, write a wrapper:
 
     ```
