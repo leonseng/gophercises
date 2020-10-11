@@ -2,7 +2,8 @@ package main
 
 import (
 	"cyoa/util"
-	"fmt"
+	"log"
+	"net/http"
 	"os"
 )
 
@@ -19,5 +20,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("%v\n", story)
+
+	// http.HandleFunc("/", util.StoryHandleFunc(story))
+	// log.Fatal(http.ListenAndServe(":8080", nil))
+
+	log.Fatal(http.ListenAndServe(":8080", util.StoryHandler{story}))
 }
