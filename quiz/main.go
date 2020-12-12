@@ -26,7 +26,10 @@ func main() {
 	problems := loadProblems(fileName)
 
 	fmt.Printf("%v seconds to answer %v questions. Press Enter to start game...", gameTime, len(problems))
-	stdinReader.ReadString('\n')
+	_, err := stdinReader.ReadString('\n')
+	if err != nil {
+		panic(err)
+	}
 
 	wg.Add(1)  // only wait for one of the goroutines to finish
 	go playGame(problems)
